@@ -18,8 +18,7 @@ def check_lock(key, lock, r, c):
             # 0 -> 0,1,2   1 -> 0,1     2 -> 0 
             if 0 <= lock_r-r < len(key) and 0 <= lock_c-c < len(key[0]):
                 match += key[lock_r-r][lock_c-c]
-     Y
-       
+            
             if match != 1:
                 return False
 
