@@ -34,8 +34,8 @@ def solution(a):
         if cnt_col[c] > len(a) - r:
             return
         
-        tmp_row = copy.deepcopy(cnt_row) #cnt_row[:]
-        tmp_col = copy.deepcopy(cnt_col) #cnt_col[:]
+        tmp_row = cnt_row[:]
+        tmp_col = cnt_col[:]
         #print(r, c, cnt_col[c], 'Z', level)
         backtracking(a, b, r, c+1, tmp_row, tmp_col, level+1) # 0
         #print(r, c, tmp_col[c], 'Y', level)
@@ -44,7 +44,7 @@ def solution(a):
             cnt_col[c] -= 1
             cnt_row[r] = not cnt_row[r]
             backtracking(a, b, r, c+1, cnt_row, cnt_col, level+1)
-        #cnt_row = tmp_row
+        #cnt_row = tmp_row #원래 값으로 원상복구 시켜도 안되지?
         #cnt_col = tmp_col
         
     backtracking(a, b, 0, 0, cnt_row, cnt_col, 0)
